@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Minhas Solicitações - Almoxarifado UFOPA</title>
+    <link
+      rel="stylesheet"
+      href="/almoxarifado/public/client/styles/minhas_solicitacoes.css"
+    />
+  </head>
+  <body>
+    <h1>Minhas Solicitações</h1>
+
+    <ul id="solicitacoes-list"></ul>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        carregarMinhasSolicitacoes();
+      });
+      function carregarMinhasSolicitacoes() {
+        axios
+          .get('http://localhost:3000/solicitacaos')
+          .then(function (response) {
+            exibirSolicitacoes(response.data);
+          })
+          .catch(function (error) {
+            console.error(error);
+            alert('Erro ao carregar as solicitações.');
+          });
+      }
+
+      function exibirSolicitacoes(solicitacoes) {
+        const solicitacoesList = document.getElementById('solicitacoes-list');
+
+        solicitacoesList.innerHTML = '';
+
+        solicitacoes.forEach(function (solicitacao) {
+          const listItem = document.createElement('li');
+          listItem.textContent = `Código: ${
+            solicitacao.codigo
+          }, Data: ${formatarData(solicitacao.dataSolicitacao)}, Status: ${
+            solicitacao.codigoStatus
+          }, Código Cliente: ${solicitacao.codigoCliente}, Código ADM ADP: ${
+            solicitacao.codigoAdmDpa
+          }`;
+          solicitacoesList.appendChild(listItem);
+        });
+        function formatarData(data) {
+          const dataObj = new Date(data);
+          return `${dataObj.toLocaleDateString()} ${dataObj.toLocaleTimeString()}`;
+        }
+      }
+    </script>
+  </body>
+</html>

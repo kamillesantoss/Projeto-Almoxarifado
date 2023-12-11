@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/almoxarifado/public/client/styles/main.css" />
+    <title>Almoxarifado UFOPA</title>
+  </head>
+  <body>
+    <div class="sidebar"></div>
+    <div class="container">
+      <header>
+        <nav>
+          <h1>
+            ALMOXARIFADO
+            <div class="ufopa">UFOPA</div>
+          </h1>
+          <img
+            src="/almoxarifado/public/client/images/Logo UFOPA.png"
+            alt="Brasão UFOPA"
+          />
+        </nav>
+      </header>
+
+      <main>
+        <section class="card" id="catalogo-produtos">
+          <img
+            src="/almoxarifado/public/client/images/icon_Catalago.png"
+            alt="Catálogo de Produtos"
+          />
+          <h2>Catálogo de Produtos</h2>
+          <p>Categorias</p>
+          <p>Novas Adições</p>
+        </section>
+        <section class="card" id="estoque-materiais">
+          <img
+            src="/almoxarifado/public/client/images/icon_estoque.png"
+            alt="Estoque de Materiais"
+          />
+          <h2>Estoque de Materiais</h2>
+        </section>
+        <section class="card" id="minhas-solicitacoes">
+          <img
+            src="/almoxarifado/public/client/images/icon_minhasSolicitação.png"
+            alt="Minhas Solicitações"
+          />
+          <h2>Minhas Solicitações</h2>
+          <p>Histórico</p>
+          <p>Rascunhos</p>
+        </section>
+        <section class="card" id="cadastrar-solicitacao">
+          <img
+            src="/almoxarifado/public/client/images/icon_CadastrarSolicitação.png"
+            alt="Cadastrar Solicitação"
+          />
+          <h2>Cadastrar Solicitação</h2>
+        </section>
+      </main>
+    </div>
+    <script>
+      document
+        .getElementById('cadastrar-solicitacao')
+        .addEventListener('click', function () {
+          window.location.href = 'cadastrar_solicitacao.html';
+        });
+      document
+        .getElementById('minhas-solicitacoes')
+        .addEventListener('click', function () {
+          window.location.href = 'minhas_solicitacoes.html';
+        });
+    </script>
+  </body>
+</html>

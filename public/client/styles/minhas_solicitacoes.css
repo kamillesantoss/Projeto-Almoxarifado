@@ -1,0 +1,44 @@
+body {
+  font-family: Inter;
+  margin: 0;
+  padding: 0;
+  background-color: #D8E3F4; 
+  background-image: url('/almoxarifado/public/client/images/fundo.png'); 
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  text-align: center;
+  color: #071F43;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 50px auto;
+  max-width: 700px;
+}
+
+li {
+  background-color: #D8E3F4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+li:hover {
+  transform: translateY(-5px);
+}
+
+li:before {
+  color: #071F43;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}

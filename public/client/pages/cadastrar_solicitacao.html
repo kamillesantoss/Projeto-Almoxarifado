@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Cadastrar Solicitação - Almoxarifado UFOPA</title>
+    <link
+      rel="stylesheet"
+      href="/almoxarifado/public/client/styles/cadastrar_solicitacao.css"
+    />
+  </head>
+  <body>
+    <form onsubmit="salvarSolicitacao(); return false;">
+      <div class="form-title">Cadastrar Solicitação</div>
+      Código: <input type="number" id="codigo" /> <br />
+      Data da Solicitação: <input type="date" id="dataSolicitacao" />
+      <br />
+      Código do Status: <input type="number" id="codigoStatus" />
+      <br />
+      Código do Cliente: <input type="number" id="codigoCliente" />
+      <br />
+      Código do Administrador DAP:
+      <input type="number" id="codigoAdmDpa" /> <br />
+      <input type="submit" value="Salvar Solicitação" />
+    </form>
+
+    <script>
+      function salvarSolicitacao() {
+        const dataSolicitacao =
+          document.getElementById('dataSolicitacao').value;
+        const dataFormatada = new Date(dataSolicitacao).toISOString();
+
+        const data = {
+          codigo: parseInt(document.getElementById('codigo').value),
+          dataSolicitacao: dataFormatada,
+          codigoStatus: parseInt(document.getElementById('codigoStatus').value),
+          codigoCliente: parseInt(
+            document.getElementById('codigoCliente').value,
+          ),
+          codigoAdmDpa: parseInt(document.getElementById('codigoAdmDpa').value),
+        };
+
+        axios
+          .post('http://localhost:3000/solicitacaos', data)
+          .then(function (response) {
+            console.log(response);
+            alert('Solicitação salva com sucesso!');
+            window.location.href = 'index.html';
+          })
+          .catch(function (error) {
+            console.error(error);
+            alert('Erro ao salvar a solicitação.');
+          });
+      }
+    </script>
+  </body>
+</html>

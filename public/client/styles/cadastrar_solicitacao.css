@@ -1,0 +1,51 @@
+body {
+  font-family: Inter;
+  margin: 0;
+  padding: 0;
+  background-color: #D8E3F4; 
+  background-image: url('/almoxarifado/public/client/images/fundo.png'); 
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+.form-title {
+  text-align: center;
+  color: #071F43;
+  margin-bottom: 20px;
+  font-size: 25px;
+
+}
+form {
+  text-align: left;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 450px;
+  height: 350px;
+  
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="submit"],
+select {
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #071F43;
+  color: white;
+  cursor: pointer;
+  width: 100%; 
+  padding: 10px; 
+  margin-top: 10px;
+}
